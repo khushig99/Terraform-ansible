@@ -8,12 +8,21 @@ resource "google_compute_instance" "vm" {
       image = "debian-cloud/debian-12"
     }
   }
-
+  
+  data "google_compute_network" "default" {
+    name = "default"
+  }
+  
   network_interface {
-    network = "default"
+    network = data.google_compute_network.default.name
     access_config {}
   }
+
   labels = local.common_labels
+
+  lifecycle {
+    prevent_destroy = false
+  }
 }
 
-
+#data block for network - terraform  get exact resource reference,dependancy clear hoti hai, network = default is hardcoded

@@ -1,8 +1,8 @@
-tfvars-> env(define kiya, if nhi krte toh variables me jo default diya hai vo use hota, abhi dev diya hai toh dev use hoga)->
-->variables.tf (dev hojayega)
-->locals.tf (local.env = dev, hoga and based on condition, machine_type= e2medium hojayge)
-->main.tf (isme jo resource create hoga vo name= demo-vm-dev name se create hoga, machine-type= e2-medium)
-Locals ke use 
+#tfvars-> env(define kiya, if nhi krte toh variables me jo default diya hai vo use hota, abhi dev diya hai toh dev use hoga)->
+#->variables.tf (dev hojayega)
+#->locals.tf (local.env = dev, hoga and based on condition, machine_type= e2medium hojayge)
+#->main.tf (isme jo resource create hoga vo name= demo-vm-dev name se create hoga, machine-type= e2-medium)
+#Locals ke use 
 
-terraform.tfvars(env define)->variable.tf(get to know abt env)-> locals.tf(local.env=dev, and machine type based on it)->
-->provider.tf(google api se connect) ->main.tf(vm create)
+#terraform.tfvars(env define)->variable.tf(get to know abt env)-> locals.tf(local.env=dev, and machine type based on it)->
+#->provider.tf(google api se connect) ->data(read) ->main.tf(vm create)-> state(GCS me store)->outputs
