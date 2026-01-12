@@ -1,3 +1,4 @@
 project_id = "getteam"
-region = "us-central1-a"
+region = "us-central1"
+zone = "us-central1-a"
 env = "dev"

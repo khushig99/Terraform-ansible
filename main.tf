@@ -4,13 +4,9 @@ resource "google_compute_instance" "vm" {
   zone = var.zone
 
   boot_disk {
-    initalize_params {
+    initialize_params {
       image = "debian-cloud/debian-12"
     }
-  }
-  
-  data "google_compute_network" "default" {
-    name = "default"
   }
   
   network_interface {
