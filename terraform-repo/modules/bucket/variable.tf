@@ -1,6 +1,6 @@
 variable "project_id" {
     type = string
-    default = getteam
+    default = "getteam"
 }
 variable "region" {
     type = string
@@ -29,4 +29,12 @@ variable "versioning" {
 variable "force_destroy" {
     type = bool
     default = false
+}
+
+variable "labels" {
+    type = map(string)
+    default = {
+        environment = "dev"
+        managed_by = "terraform"
+    }
 }

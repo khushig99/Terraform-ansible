@@ -6,9 +6,9 @@ module "my_vm" {
     zone = "us-central1-a"
 }
 
+
 module "my_bucket" {
     source = "./modules/bucket"
-
     project_id = "getteam"
     bucket_name = "bucket-frm-module"
 }

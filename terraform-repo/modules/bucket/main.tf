@@ -4,7 +4,7 @@ resource "google_storage_bucket" "buck" {
     storage_class = var.storage_class
 
     uniform_bucket_level_access = true
-    var.force_destroy = var.force_destroy
+    force_destroy = var.force_destroy
 
     versioning {
         enabled = var.versioning
