@@ -4,7 +4,7 @@ role_id = "customAppRole"
 role_title = "Custom App Role"
 role_description = "Custom role for application access"
 
-permission = [
+permissions = [
     "storage.buckests.get",
     "storage.objects.get",
     "storage.objects.create"

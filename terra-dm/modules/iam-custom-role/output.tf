@@ -1,3 +1,3 @@
 output "custom_role_name" {
-    value = googel_project_iam_custom_role.custom_role.name
+    value = google_project_iam_custom_role.custom_role.name
 }
