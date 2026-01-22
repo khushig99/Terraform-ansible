@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+ 
+  parameters {
+    choice(name: 'APP_NAME', choices: ['app-a', 'app-b'])
+  }
+ 
+  stages {
+    stage('Terraform Init') {
+      steps {
+        dir("env/${APP_NAME}") {
+          sh 'terraform init'
+        }
+      }
+    }
+ 
+    stage('Terraform Apply') {
+      steps {
+        dir("env/${APP_NAME}") {
+          sh 'terraform apply -auto-approve'
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+terraform apply -var-file="terraform.tfvars" -var-file="env.tfvars"
+
+
+req:
+root module me 2 module call, module2 depenedent on module1 , 
+custom iam role using terraform, that custom iam role bind to service acc. 
+multiple tfvars paa kese kroge 
+single terraform apply me sb ho
+
+->> iam-custom-role jo module h vo custom iam role bnayega,->
+-> us ka full name output karta ho
+->>root module us output ko module 2/ service-account ke input me pass karega(custom_role_name=module.custom_role.custom_role_name)
+->> service-account module me bindinng hojayegi
+as  service-account module needs custom_role, toh phele custom role bangea, phir binding hojayegi
+
+multiple tfvars kyu bnayi ? agar tfvars root(common values) me it will be taken directly during terraform apply,
+but if we have multiple environment, who uses same template, but req, diff, values, so i created env.tfvars(for dev/prod), same template, diff. env
