@@ -1,0 +1,19 @@
+req; (same terraform code, app a and app b keliye, alag alag state file)
+same module/template use hona h
+appa and appb ke liye alag alag state files create
+jenkins se App_name parameter ke through krna h, means dynamically
+root main.tf ko env ke andar shift krnege, seprate root.tf for both env or appa and appb
+seperate state file, smae bucket, different prefix
+
+jenkins pipipeline me define krdenge env as a parameter, so jo bhi para select krenge vo build hoga,
+app-a select kiya, toh app-a ka state file store hoga bucket me
+jenkins simply - cd env/app-a -> terraform init -> terraform apply
+
+
+module -> base template, only need config
+root -> tells module the config
+tfvars -> app a ke liye ye config
+
+flow- jenkins(env select)->terraform check backend.tf(decide kis env ki state bnegi)-> tfvars read(vm_name = "app-a-vm")
+->root variable fill hoga (var.vm_name = "app-a-vm") -> root module give to vm module (vm_name = var.vm_name) ->
+vm module creates resources-> statefile me store hoga(app-a/terraform.tfstate)
